@@ -1,7 +1,9 @@
+require('dotenv').config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const PORT = process.env.PORT || 1509;
+const PORT = process.env.PORT || 1509 ;
 const DB = "mongodb+srv://basit:basitali1509@cluster0.n7zmkqj.mongodb.net/?retryWrites=true&w=majority";
 
 // Import from other files
