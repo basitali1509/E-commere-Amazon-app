@@ -1,7 +1,7 @@
 # E-commerce: Amazon Clone App
 
 
-![Image](https://res.cloudinary.com/dyduvs3s5/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1692112882/m10tnhzjmktmxztfjpfh.png)
+![Image](https://res.cloudinary.com/dyduvs3s5/image/upload/v1692130358/jltwcpj8zwuxyw353f2j.png)
 
 
 
