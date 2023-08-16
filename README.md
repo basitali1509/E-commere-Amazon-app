@@ -1,16 +1,13 @@
-# E Commerce
+# E-commerce: Amazon Clone App
 
-A complete E Commerce app with admin panel.
 
-## Getting Started
+![Image](https://res.cloudinary.com/dyduvs3s5/image/upload/v1692130358/jltwcpj8zwuxyw353f2j.png)
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## A Full Stack Amazon Clone App (User & Admin) 
+- Fronted UI is made with Flutter.
+- Backend APIs developed with Node JS.
+- Mongo db is used for cloud database.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
