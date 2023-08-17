@@ -54,19 +54,27 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+
       backgroundColor: GlobalVariables.greyBackgroundCOlor,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const SizedBox(
+                height: 20,
+              ),
               const Text(
-                'Welcome',
+                ' Welcome',
                 style: TextStyle(
-                  fontSize: 22,
+                  fontSize: 24,
                   fontWeight: FontWeight.w500,
                 ),
+              ),
+              const SizedBox(
+                height: 30,
               ),
               ListTile(
                 tileColor: _auth == Auth.signup
@@ -75,6 +83,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 title: const Text(
                   'Create Account',
                   style: TextStyle(
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -108,6 +117,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         ),
                         const SizedBox(height: 10),
                         CustomTextField(
+
                           controller: _passwordController,
                           hintText: 'Password',
                         ),
@@ -132,6 +142,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 title: const Text(
                   'Sign-In.',
                   style: TextStyle(
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -161,6 +172,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         const SizedBox(height: 10),
                         CustomTextField(
                           controller: _passwordController,
+                          obscureText: true,
                           hintText: 'Password',
                         ),
                         const SizedBox(height: 10),
