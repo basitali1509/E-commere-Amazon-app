@@ -1,6 +1,7 @@
 import 'package:e_commerce/constants/global_variables.dart';
 import 'package:e_commerce/features/admin/screens/analtyics_screen.dart';
 import 'package:e_commerce/features/admin/screens/orders_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'posts_screen.dart';
@@ -18,7 +19,7 @@ class _AdminScreenState extends State<AdminScreen> {
   double bottomBarBorderWidth = 5;
 
   List<Widget> pages = [
-      const PostsScreen(),
+    const PostsScreen(),
     const AnalyticsScreen(),
     const OrdersScreen(),
   ];
@@ -46,10 +47,9 @@ class _AdminScreenState extends State<AdminScreen> {
               Container(
                 alignment: Alignment.topLeft,
                 child: Image.asset(
-                  'assets/images/amazon_in.png',
-                  width: 120,
-                  height: 45,
-                  color: Colors.black,
+                  'assets/images/amazon_logo.png',
+                  width: 75,
+                  height: 40,
                 ),
               ),
               const Text(
@@ -87,7 +87,7 @@ class _AdminScreenState extends State<AdminScreen> {
                 ),
               ),
               child: const Icon(
-                Icons.home_outlined,
+                CupertinoIcons.home,
               ),
             ),
             label: '',
@@ -127,7 +127,7 @@ class _AdminScreenState extends State<AdminScreen> {
                 ),
               ),
               child: const Icon(
-                Icons.all_inbox_outlined,
+                Icons.all_inbox_rounded,
               ),
             ),
             label: '',
