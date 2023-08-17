@@ -1,4 +1,3 @@
-
 import 'package:e_commerce/constants/global_variables.dart';
 import 'package:e_commerce/features/account/widgets/below_app_bar.dart';
 import 'package:e_commerce/features/account/widgets/orders.dart';
@@ -26,22 +25,24 @@ class AccountScreen extends StatelessWidget {
               Container(
                 alignment: Alignment.topLeft,
                 child: Image.asset(
-                  'assets/images/amazon_in.png',
-                  width: 120,
-                  height: 45,
-                  color: Colors.black,
+                  'assets/images/amazon_logo.png',
+                  width: 75,
+                  height: 40,
                 ),
               ),
               Container(
-                padding: const EdgeInsets.only(left: 15, right: 15),
-                child: Row(
-                  children: const [
+                padding: const EdgeInsets.only(left: 15, bottom: 6),
+                child: const Row(
+                  children: [
                     Padding(
                       padding: EdgeInsets.only(right: 15),
                       child: Icon(Icons.notifications_outlined),
                     ),
-                    Icon(
-                      Icons.search,
+                    Padding(
+                      padding: EdgeInsets.only(left: 7),
+                      child: Icon(
+                        Icons.search,
+                      ),
                     ),
                   ],
                 ),
@@ -50,8 +51,8 @@ class AccountScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Column(
-        children: const [
+      body: const Column(
+        children: [
           BelowAppBar(),
           SizedBox(height: 10),
           TopButtons(),
