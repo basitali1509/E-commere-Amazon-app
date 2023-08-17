@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:pay/pay.dart';
 
-import '../../home/screens/home_screen.dart';
 
 class AddressScreen extends StatefulWidget {
   static const String routeName = '/address';
@@ -95,20 +94,7 @@ class _AddressScreenState extends State<AddressScreen> {
     cityController.dispose();
   }
 
-  // void onApplePayResult(res) {
-  //   if (Provider.of<UserProvider>(context, listen: false)
-  //       .user
-  //       .address
-  //       .isEmpty) {
-  //     addressServices.saveUserAddress(
-  //         context: context, address: addressToBeUsed);
-  //   }
-  //   addressServices.placeOrder(
-  //     context: context,
-  //     address: addressToBeUsed,
-  //     totalSum: double.parse(widget.totalAmount),
-  //   );
-  // }
+
 
   Future<void> navigateToBottomBar() async {
     await Future.delayed(Duration(seconds: 2)) ;
@@ -236,36 +222,7 @@ class _AddressScreenState extends State<AddressScreen> {
                   ],
                 ),
               ),
-              // ApplePayButton(
-              //   width: double.infinity,
-              //   style: ApplePayButtonStyle.whiteOutline,
-              //   type: ApplePayButtonType.buy,
-              //   paymentConfigurationAsset: 'applepay.json',
-              //   onPaymentResult: onApplePayResult,
-              //   paymentItems: paymentItems,
-              //   margin: const EdgeInsets.only(top: 15),
-              //   height: 50,
-              //   onPressed: () => payPressed(address),
-              // ),
               const SizedBox(height: 10),
-              // GooglePayButton(
-              //     paymentConfiguration:
-              //     PaymentConfiguration.fromJsonString(
-              //         gPay
-              //     ),
-              //   onPressed: () => payPressed(address),
-              //   // paymentConfigurationAsset: 'gpay.json',
-              //   onPaymentResult:
-              //       onGooglePayResult,
-              //     paymentItems: paymentItems,
-              //     height: 50,
-              //
-              //     type: GooglePayButtonType.buy,
-              //     margin: const EdgeInsets.only(top: 15),
-              //     loadingIndicator: const Center(
-              //     child: CircularProgressIndicator(color: Colors.blue,),
-              //     ),
-              //     ),
                   const SizedBox(height: 25,),
                   InkWell(
                   onTap: ()async {
