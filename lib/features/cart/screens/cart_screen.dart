@@ -1,4 +1,3 @@
-
 import 'package:e_commerce/Provider/user_provider.dart';
 import 'package:e_commerce/common/custom_button.dart';
 import 'package:e_commerce/constants/global_variables.dart';
@@ -38,6 +37,7 @@ class _CartScreenState extends State<CartScreen> {
     user.cart
         .map((e) => sum += e['quantity'] * e['product']['price'] as int)
         .toList();
+
 
     return Scaffold(
       appBar: PreferredSize(
@@ -112,9 +112,10 @@ class _CartScreenState extends State<CartScreen> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
+      body: CustomScrollView(
+        slivers: [
+          SliverList(
+              delegate: SliverChildListDelegate([
             const AddressBox(),
             const CartSubtotal(),
             Padding(
@@ -122,13 +123,12 @@ class _CartScreenState extends State<CartScreen> {
               child: CustomButton(
                 text: 'Proceed to Buy (${user.cart.length} items)',
                 onTap: () {
-                  if(user.cart.isNotEmpty){
+                  if (user.cart.isNotEmpty) {
                     navigateToAddress(sum);
-                  }
-                  else{
+                  } else {
                     showSnackBar(context, 'Cart is empty');
                   }
-                  },
+                },
                 color: Colors.yellow[600],
               ),
             ),
@@ -137,8 +137,12 @@ class _CartScreenState extends State<CartScreen> {
               color: Colors.black12.withOpacity(0.08),
               height: 1,
             ),
-            const SizedBox(height: 16),
-            ListView.builder(
+            const SizedBox(height: 10),
+          ])),
+          SliverFillRemaining(
+            hasScrollBody: true,
+            child: ListView.builder(
+              scrollDirection: Axis.vertical,
               itemCount: user.cart.length,
               shrinkWrap: true,
               itemBuilder: (context, index) {
@@ -147,8 +151,8 @@ class _CartScreenState extends State<CartScreen> {
                 );
               },
             ),
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
