@@ -51,16 +51,14 @@ class _CartProductState extends State<CartProduct> {
     return Column(
       children: [
         Container(
-          margin: const EdgeInsets.symmetric(
-            horizontal: 10,
-          ),
+          margin: const EdgeInsets.only(left: 10),
           child: Row(
             children: [
               Image.network(
                 product.images[0],
                 fit: BoxFit.contain,
-                height: 135,
-                width: 135,
+                height: 115,
+                width: 115,
               ),
               Column(
                 children: [
@@ -70,7 +68,7 @@ class _CartProductState extends State<CartProduct> {
                     child: Text(
                       product.name,
                       style: const TextStyle(
-                        fontSize: 16,
+                        fontSize: 14,
                       ),
                       maxLines: 2,
                     ),
@@ -81,7 +79,7 @@ class _CartProductState extends State<CartProduct> {
                     child: Text(
                       '\$${product.price}',
                       style: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
                       maxLines: 2,
@@ -90,7 +88,9 @@ class _CartProductState extends State<CartProduct> {
                   Container(
                     width: 235,
                     padding: const EdgeInsets.only(left: 10),
-                    child: const Text('Eligible for FREE Shipping'),
+                    child: const Text(
+                        'Eligible for FREE Shipping',
+                    style: TextStyle(fontSize: 12),),
                   ),
                   Container(
                     width: 235,
@@ -109,7 +109,7 @@ class _CartProductState extends State<CartProduct> {
           ),
         ),
         Container(
-          margin: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(vertical: 18,horizontal: 12),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
