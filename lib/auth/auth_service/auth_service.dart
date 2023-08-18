@@ -9,7 +9,6 @@ import '../../Provider/user_provider.dart';
 import '../../constants/error_handling.dart';
 import '../../constants/global_variables.dart';
 import '../../constants/utils.dart';
-import '../../features/home/screens/home_screen.dart';
 import '../../models/user.dart';
 
 class AuthService {
@@ -53,7 +52,7 @@ class AuthService {
       );
     } catch (e) {
       showSnackBar(context, e.toString());
-      print('Error in httpHandle:'+ e.toString());
+      print('Error in http Handle:$e');
     }
   }
 
