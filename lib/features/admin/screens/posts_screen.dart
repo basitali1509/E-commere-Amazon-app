@@ -55,14 +55,14 @@ class _PostsScreenState extends State<PostsScreen> {
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
 
-                  crossAxisSpacing: 10
+                  crossAxisSpacing: 8
                 ),
                 itemBuilder: (context, index) {
                   final productData = products![index];
                   return Column(
                     children: [
                       SizedBox(
-                        height: 140,
+                        height: 115,
                         child: SingleProduct(
                           image: productData.images[0],
                         ),
@@ -71,10 +71,14 @@ class _PostsScreenState extends State<PostsScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Expanded(
-                            child: Text(
-                              '   ${productData.name}',
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 2,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 8),
+                              child: Text(
+                                productData.name,
+
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 2,
+                              ),
                             ),
                           ),
                           IconButton(
@@ -91,10 +95,12 @@ class _PostsScreenState extends State<PostsScreen> {
               ),
             ),
             floatingActionButton: FloatingActionButton(
-              child: const Icon(Icons.add),
               onPressed: navigateToAddProduct,
+              backgroundColor: const Color.fromARGB(255, 45, 222, 213),
               tooltip: 'Add a Product',
+              child:  const Icon(Icons.add),
             ),
+
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerFloat,
           );
