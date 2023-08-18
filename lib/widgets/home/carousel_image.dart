@@ -16,12 +16,12 @@ class CarouselImage extends StatelessWidget {
           (i) {
             return Builder(
               builder: (BuildContext context) => ClipRRect(
-                borderRadius: BorderRadius.circular(18), // Adjust the radius as per your preference
-                child: Image.network(
+                borderRadius: BorderRadius.circular(25), // Adjust the radius as per your preference
+                child: Image.asset(
                   i,
                   fit: BoxFit.fill,
-                  height: 215,
-                  width: 380,
+                  height: 200,
+                  width: 320,
                 ),
               ),
             );
