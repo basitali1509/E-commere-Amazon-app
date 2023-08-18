@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:e_commerce/Provider/user_provider.dart';
 import 'package:e_commerce/constants/error_handling.dart';
 import 'package:e_commerce/constants/global_variables.dart';
