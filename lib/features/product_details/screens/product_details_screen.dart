@@ -3,7 +3,6 @@ import 'package:e_commerce/Provider/user_provider.dart';
 import 'package:e_commerce/common/custom_button.dart';
 import 'package:e_commerce/common/stars.dart';
 import 'package:e_commerce/constants/global_variables.dart';
-import 'package:e_commerce/features/address/screens/address_screen.dart';
 import 'package:e_commerce/features/product_details/services/product_details_services.dart';
 import 'package:e_commerce/features/search/screens/search_screen.dart';
 import 'package:e_commerce/models/product.dart';
@@ -11,6 +10,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
+
+import '../../address/screens/address_screen.dart';
 
 class ProductDetailScreen extends StatefulWidget {
   static const String routeName = '/product-details';
@@ -75,7 +76,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               Expanded(
                 child: Container(
                   height: 42,
-                  margin: const EdgeInsets.only(left: 15),
+                  margin: const EdgeInsets.only(left: 0),
                   child: Material(
                     borderRadius: BorderRadius.circular(7),
                     elevation: 1,
@@ -86,7 +87,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           onTap: () {},
                           child: const Padding(
                             padding: EdgeInsets.only(
-                              left: 6,
+                              left: 4,
                             ),
                             child: Icon(
                               Icons.search,
@@ -152,14 +153,11 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 20,
-                horizontal: 10,
-              ),
+              padding: const EdgeInsets.only(left: 10, right: 10, top: 15),
               child: Text(
                 widget.product.name,
                 style: const TextStyle(
-                  fontSize: 15,
+                  fontSize: 20,
                 ),
               ),
             ),
@@ -180,15 +178,12 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 height: 300,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 12),
-              child: Container(
-                color: Colors.black12,
-                height: 5,
-              ),
+            Container(
+              color: Colors.black12,
+              height: 4,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
               child: RichText(
                 text: TextSpan(
                   text: 'Deal Price: ',
@@ -227,10 +222,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 color: GlobalVariables.secondaryColor,
                 text: 'Buy Now',
                 onTap: () {
-                  // Navigator.pushNamed(
-                  //     context, AddressScreen.routeName,
-                  //     arguments: widget.product.price.toString()
-                  // );
+                  Navigator.pushNamed(
+                      context, AddressScreen.routeName,
+                      arguments: widget.product.price.toString()
+                  );
                 },
               ),
             ),
@@ -246,14 +241,14 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             const SizedBox(height: 10),
             Container(
               color: Colors.black12,
-              height: 5,
+              height: 4,
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 5),
               child: Text(
                 'Rate The Product',
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -265,7 +260,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               allowHalfRating: true,
               itemCount: 5,
               itemPadding: const EdgeInsets.symmetric(horizontal: 4),
-              itemBuilder: (context, _) => const Icon(
+              itemBuilder: (context, _) =>  const Icon(
                 Icons.star,
                 color: Colors.yellow,
               ),
