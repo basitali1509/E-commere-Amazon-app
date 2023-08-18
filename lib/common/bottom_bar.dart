@@ -2,11 +2,11 @@ import 'package:e_commerce/Provider/user_provider.dart';
 import 'package:e_commerce/features/account/screens/account_screen.dart';
 import 'package:e_commerce/features/cart/screens/cart_screen.dart';
 import 'package:e_commerce/features/home/screens/home_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:badges/badges.dart' as badges;
 import '../constants/global_variables.dart';
-
 
 class BottomBar extends StatefulWidget {
   static const String routeName = '/actual-home';
@@ -23,9 +23,7 @@ class _BottomBarState extends State<BottomBar> {
 
   List<Widget> pages = [
     const HomeScreen(),
-    // const HomeScreen(),
     const AccountScreen(),
-    // const HomeScreen(),
     const CartScreen(),
   ];
 
@@ -42,7 +40,6 @@ class _BottomBarState extends State<BottomBar> {
     return Scaffold(
       body: pages[_page],
       bottomNavigationBar: BottomNavigationBar(
-
         currentIndex: _page,
         selectedItemColor: GlobalVariables.selectedNavBarColor,
         unselectedItemColor: GlobalVariables.unselectedNavBarColor,
@@ -65,7 +62,7 @@ class _BottomBarState extends State<BottomBar> {
                 ),
               ),
               child: const Icon(
-                Icons.home_outlined,
+                CupertinoIcons.home,
               ),
             ),
             label: '',
@@ -85,7 +82,7 @@ class _BottomBarState extends State<BottomBar> {
                 ),
               ),
               child: const Icon(
-                Icons.person_outline_outlined,
+                CupertinoIcons.person,
               ),
             ),
             label: '',
@@ -104,15 +101,19 @@ class _BottomBarState extends State<BottomBar> {
                   ),
                 ),
               ),
-              child:  badges.Badge(
-                badgeContent: Text(userCartLen.toString()),
-                badgeStyle: badges.BadgeStyle(
+              child: badges.Badge(
+                badgeContent: Padding(
+                  padding: const EdgeInsets.all(0.25),
+                  child: Text(
+                    userCartLen.toString(),
+                    style: const TextStyle(color: Colors.white, fontSize: 9),
+                  ),
+                ),
+                badgeStyle: const badges.BadgeStyle(
                   elevation: 0,
-                  badgeColor: Colors.white,
+                  badgeColor: Colors.black,
                 ),
-                child: Icon(
-                  Icons.shopping_cart_outlined,
-                ),
+                child: const Icon(CupertinoIcons.shopping_cart),
               ),
             ),
             label: '',
