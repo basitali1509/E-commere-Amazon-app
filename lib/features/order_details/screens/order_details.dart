@@ -35,7 +35,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
     currentStep = widget.order.status;
   }
 
-  // !!! ONLY FOR ADMIN!!!
+
   void changeOrderStatus(int status) {
     adminServices.changeOrderStatus(
       context: context,
@@ -68,7 +68,6 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
               Expanded(
                 child: Container(
                   height: 42,
-                  margin: const EdgeInsets.only(left: 15),
                   child: Material(
                     borderRadius: BorderRadius.circular(7),
                     elevation: 1,
@@ -77,15 +76,10 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                       decoration: InputDecoration(
                         prefixIcon: InkWell(
                           onTap: () {},
-                          child: const Padding(
-                            padding: EdgeInsets.only(
-                              left: 6,
-                            ),
-                            child: Icon(
-                              Icons.search,
-                              color: Colors.black,
-                              size: 23,
-                            ),
+                          child: const Icon(
+                            Icons.search,
+                            color: Colors.black,
+                            size: 23,
                           ),
                         ),
                         filled: true,
@@ -109,7 +103,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                         hintText: 'Search Amazon.in',
                         hintStyle: const TextStyle(
                           fontWeight: FontWeight.w500,
-                          fontSize: 17,
+                          fontSize: 15,
                         ),
                       ),
                     ),
@@ -128,18 +122,18 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
                 'View order details',
                 style: TextStyle(
-                  fontSize: 22,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(10),
@@ -151,12 +145,17 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Order Date:      ${DateFormat().format(
+                    Text('Order Date:   ${DateFormat().format(
                       DateTime.fromMillisecondsSinceEpoch(
                           widget.order.orderedAt),
                     )}'),
-                    Text('Order ID:          ${widget.order.id}'),
-                    Text('Order Total:      \$${widget.order.totalPrice}'),
+                    Row(
+                      children: [
+                        const Text('Order ID:   '),
+                        Text('${widget.order.id}', style: const TextStyle(fontSize: 12.5),)
+                      ],
+                    ),
+                    Text('Order Total:   \$${widget.order.totalPrice}'),
                   ],
                 ),
               ),
@@ -164,64 +163,72 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
               const Text(
                 'Purchase Details',
                 style: TextStyle(
-                  fontSize: 22,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
 
-              SizedBox(height: 6,),
+              const SizedBox(height: 6,),
               Container(
                 decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
                   border: Border.all(
                     color: Colors.black12,
+                    
                   ),
+                  
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    for (int i = 0; i < widget.order.products.length; i++)
-                      Row(
-                        children: [
-                          Image.network(
-                            widget.order.products[i].images[0],
-                            height: 120,
-                            width: 120,
-                          ),
-                          const SizedBox(width: 5),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  widget.order.products[i].name,
-                                  style: const TextStyle(
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                                Text(
-                                  'Qty: ${widget.order.quantity[i]}',
-                                ),
-                              ],
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+
+                      for (int i = 0; i < widget.order.products.length; i++)
+                        Row(
+                          children: [
+                            Image.network(
+
+                              widget.order.products[i].images[0],
+                              height: 120,
+                              width: 120,
                             ),
-                          ),
-                        ],
-                      ),
-                  ],
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    widget.order.products[i].name,
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  Text(
+                                    'Qty: ${widget.order.quantity[i]}',
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(height: 10),
               const Text(
                 'Tracking',
                 style: TextStyle(
-                  fontSize: 22,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
 
-              SizedBox(height: 8,),
+              const SizedBox(height: 8,),
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(
