@@ -16,6 +16,7 @@ class AddProductScreen extends StatefulWidget {
   State<AddProductScreen> createState() => _AddProductScreenState();
 }
 
+
 class _AddProductScreenState extends State<AddProductScreen> {
   final TextEditingController productNameController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
@@ -26,6 +27,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
   String category = 'Mobiles';
   List<File> images = [];
   final _addProductFormKey = GlobalKey<FormState>();
+
+  
 
   @override
   void dispose() {
@@ -66,11 +69,6 @@ class _AddProductScreenState extends State<AddProductScreen> {
     setState(() {
       images = selectedImages;
     });
-
-    // var res = await getImages();
-    // setState(() {
-    //   images = res;
-    // });
   }
 
   @override
@@ -97,111 +95,114 @@ class _AddProductScreenState extends State<AddProductScreen> {
           key: _addProductFormKey,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Column(
-              children: [
-                const SizedBox(height: 20),
-                images.isNotEmpty
-                    ? CarouselSlider(
-                        items: images.map(
-                          (i) {
-                            return Builder(
-                              builder: (BuildContext context) => Image.file(
-                                i,
-                                fit: BoxFit.cover,
-                                height: 200,
-                              ),
-                            );
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 0),
+              child: Column(
+
+                children: [
+                  const SizedBox(height: 20),
+                  images.isNotEmpty
+                      ? CarouselSlider(
+                          items: images.map(
+                            (i) {
+                              return Builder(
+                                builder: (BuildContext context) => Image.file(
+                                  i,
+                                  fit: BoxFit.cover,
+                                  height: 200,
+                                ),
+                              );
+                            },
+                          ).toList(),
+                          options: CarouselOptions(
+                            viewportFraction: 1,
+                            height: 200,
+                          ),
+                        )
+                      : GestureDetector(
+                          onTap: () {
+                            selectImages();
                           },
-                        ).toList(),
-                        options: CarouselOptions(
-                          viewportFraction: 1,
-                          height: 200,
-                        ),
-                      )
-                    : GestureDetector(
-                        onTap: () {
-                          selectImages();
-                        },
-                        child: DottedBorder(
-                          borderType: BorderType.RRect,
-                          radius: const Radius.circular(10),
-                          dashPattern: const [10, 4],
-                          strokeCap: StrokeCap.round,
-                          child: Container(
-                            width: double.infinity,
-                            height: 150,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Icon(
-                                  Icons.folder_open,
-                                  size: 40,
-                                ),
-                                const SizedBox(height: 15),
-                                Text(
-                                  'Select Product Images',
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.grey.shade400,
+                          child: DottedBorder(
+                            borderType: BorderType.RRect,
+                            radius: const Radius.circular(10),
+                            dashPattern: const [10, 4],
+                            strokeCap: StrokeCap.round,
+                            child: Container(
+                              width: double.infinity,
+                              height: 150,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(
+                                    Icons.folder_open,
+                                    size: 40,
                                   ),
-                                ),
-                              ],
+                                  const SizedBox(height: 15),
+                                  Text(
+                                    'Select Product Images',
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.grey.shade400,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                const SizedBox(height: 30),
-                CustomTextField(
-                  controller: productNameController,
-                  hintText: 'Product Name',
-                ),
-                const SizedBox(height: 10),
-                CustomTextField(
-                  controller: descriptionController,
-                  hintText: 'Description',
-                  maxLines: 7,
-                ),
-                const SizedBox(height: 10),
-                CustomTextField(
-                  controller: priceController,
-                  hintText: 'Price',
-                ),
-                const SizedBox(height: 10),
-                CustomTextField(
-                  controller: quantityController,
-                  hintText: 'Quantity',
-                ),
-                const SizedBox(height: 10),
-                SizedBox(
-                  width: double.infinity,
-                  child: DropdownButton(
-                    value: category,
-                    icon: const Icon(Icons.keyboard_arrow_down),
-                    items: productCategories.map((String item) {
-                      return DropdownMenuItem(
-                        value: item,
-                        child: Text(item),
-                      );
-                    }).toList(),
-                    onChanged: (String? newVal) {
-                      setState(() {
-                        category = newVal!;
-                      });
-                    },
+                  const SizedBox(height: 24),
+                  CustomTextField(
+                    controller: productNameController,
+                    hintText: 'Product Name',
                   ),
-                ),
-                const SizedBox(height: 10),
-                CustomButton(
-                  color: Colors.yellow,
-                    text: 'Sell',
-                    onTap: () {
-
-                      sellProduct();
-                    }),
-              ],
+                  const SizedBox(height: 10),
+                  CustomTextField(
+                    controller: descriptionController,
+                    hintText: 'Description',
+                    maxLines: 4,
+                  ),
+                  const SizedBox(height: 10),
+                  CustomTextField(
+                    controller: priceController,
+                    hintText: 'Price',
+                  ),
+                  const SizedBox(height: 10),
+                  CustomTextField(
+                    controller: quantityController,
+                    hintText: 'Quantity',
+                  ),
+                  const SizedBox(height: 10),
+                  SizedBox(
+                    width: double.infinity,
+                    child: DropdownButton(
+                      value: category,
+                      icon: const Icon(Icons.keyboard_arrow_down),
+                      items: productCategories.map((String item) {
+                        return DropdownMenuItem(
+                          value: item,
+                          child: Text(item),
+                        );
+                      }).toList(),
+                      onChanged: (String? newVal) {
+                        setState(() {
+                          category = newVal!;
+                        });
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 22),
+                  CustomButton(
+                    color: Colors.yellow,
+                      text: 'Sell',
+                      onTap: () {
+                        sellProduct();
+                      }),
+                ],
+              ),
             ),
           ),
         ),
