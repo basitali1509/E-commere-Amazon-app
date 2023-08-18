@@ -17,7 +17,7 @@ class TopCategories extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final itemWidth = screenWidth / 5;
     return SizedBox(
-      height: 70,
+      height: 60,
       child: ListView.builder(
         itemCount: GlobalVariables.categoryImages.length,
         scrollDirection: Axis.horizontal,
@@ -32,7 +32,7 @@ class TopCategories extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(50),
                     child: Image.asset(
@@ -46,7 +46,7 @@ class TopCategories extends StatelessWidget {
                 Text(
                   GlobalVariables.categoryImages[index]['title']!,
                   style: const TextStyle(
-                    fontSize: 12,
+                    fontSize: 10,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
