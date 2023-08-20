@@ -1,7 +1,5 @@
-
 import 'package:e_commerce/features/account/services/account_services.dart';
 import 'package:flutter/material.dart';
-
 import 'account_button.dart';
 
 class TopButtons extends StatelessWidget {
@@ -9,6 +7,7 @@ class TopButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Column(
       children: [
         Row(
@@ -19,7 +18,8 @@ class TopButtons extends StatelessWidget {
             ),
             AccountButton(
               text: 'Turn Seller',
-              onTap: () {},
+              onTap: () {
+              },
             ),
           ],
         ),
