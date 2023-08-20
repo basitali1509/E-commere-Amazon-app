@@ -73,12 +73,12 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
                   height: 170,
                   child: GridView.builder(
                     scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.only(left: 15),
+                    padding: const EdgeInsets.only(left: 12, ),
                     itemCount: productList!.length,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 1,
-                      childAspectRatio: 1.3,
+                      childAspectRatio: 1.04,
                       mainAxisSpacing: 10,
                     ),
                     itemBuilder: (context, index) {
@@ -94,7 +94,7 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
                         child: Column(
                           children: [
                             SizedBox(
-                              height: 130,
+                              height: 120,
                               child: DecoratedBox(
                                 decoration: BoxDecoration(
                                   border: Border.all(
@@ -105,6 +105,7 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
                                 child: Padding(
                                   padding: const EdgeInsets.all(10),
                                   child: Image.network(
+                                  fit : BoxFit.cover,
                                     product.images[0],
                                   ),
                                 ),
