@@ -24,38 +24,38 @@ class SearchedProduct extends StatelessWidget {
       children: [
         Container(
           margin: const EdgeInsets.symmetric(
-            horizontal: 10,
+            horizontal: 12,
           ),
           child: Row(
             children: [
               Image.network(
                 product.images[0],
                 fit: BoxFit.contain,
-                height: 135,
-                width: 135,
+                height: 125,
+                width: 130,
               ),
               Column(
                 children: [
                   Container(
-                    width: 235,
+                    width: 205,
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
                       product.name,
                       style: const TextStyle(
-                        fontSize: 16,
+                        fontSize: 14,
                       ),
                       maxLines: 2,
                     ),
                   ),
                   Container(
-                    width: 235,
+                    width: 205,
                     padding: const EdgeInsets.only(left: 10, top: 5),
                     child: Stars(
                       rating: avgRating,
                     ),
                   ),
                   Container(
-                    width: 235,
+                    width: 205,
                     padding: const EdgeInsets.only(left: 10, top: 5),
                     child: Text(
                       '\$${product.price}',
@@ -67,13 +67,13 @@ class SearchedProduct extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 235,
+                    width: 205,
                     padding: const EdgeInsets.only(left: 10),
-                    child: const Text('Eligible for FREE Shipping'),
+                    child: const Text('Eligible for FREE Shipping' , style: TextStyle(fontSize: 12),),
                   ),
                   Container(
-                    width: 235,
-                    padding: const EdgeInsets.only(left: 10, top: 5),
+                    width: 205,
+                    padding: const EdgeInsets.only(left: 10, ),
                     child: const Text(
                       'In Stock',
                       style: TextStyle(
@@ -82,6 +82,7 @@ class SearchedProduct extends StatelessWidget {
                       maxLines: 2,
                     ),
                   ),
+                  SizedBox(height: 15,)
                 ],
               ),
             ],
