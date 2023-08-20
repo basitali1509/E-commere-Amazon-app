@@ -1,10 +1,9 @@
-
 import 'package:e_commerce/common/loader.dart';
 import 'package:e_commerce/constants/global_variables.dart';
 import 'package:e_commerce/features/account/services/account_services.dart';
-import 'package:e_commerce/features/account/widgets/single_product.dart';
 import 'package:e_commerce/features/order_details/screens/order_details.dart';
 import 'package:e_commerce/models/order.dart';
+import 'package:e_commerce/widgets/single_product.dart';
 import 'package:flutter/material.dart';
 
 class Orders extends StatefulWidget {
@@ -39,9 +38,7 @@ class _OrdersState extends State<Orders> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    padding: const EdgeInsets.only(
-                      left: 15,
-                    ),
+                    padding: const EdgeInsets.only(left: 15, top: 10),
                     child: const Text(
                       'Your Orders',
                       style: TextStyle(
@@ -51,9 +48,7 @@ class _OrdersState extends State<Orders> {
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.only(
-                      right: 15,
-                    ),
+                    padding: const EdgeInsets.only(right: 15, top: 10),
                     child: Text(
                       'See all',
                       style: TextStyle(
@@ -67,7 +62,7 @@ class _OrdersState extends State<Orders> {
               Container(
                 height: 170,
                 padding: const EdgeInsets.only(
-                  left: 10,
+                  left: 0,
                   top: 20,
                   right: 0,
                 ),
